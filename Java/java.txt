@@ -1,0 +1,21 @@
+- instanceof: kiểm tra dữ liệu
+- final: giá trị hằng
+- int c = {int} b:  ép kiểu từ nhỏ sang lớn
+- int c = (int) b:  ép kiểu từ lớn sang nhỏ (chú ý cái này)
+- if..else..: giống C++
+- static(có vẻ giống kiểu toàn cục): giúp những thứ đi với nó sẽ được lưu trữ 
+toàn cục luôn: có cả hàm và khối luôn
++ khối static sẽ chạy trước cả hàm main
+
+- this(param): tái sử dụng lại param đã đc gán ở trên trong 1 class
+vd: this.name = name --->  hàm sau sẽ dùng this(name) --> mục đích cho nhah :D
+
+- super (các thuộc tính): gán và lấy lại các giá trị thuộc tính của lớp cha
++ super.function(): lấy lại phương thức
++ lớp con có thể lấy thêm thuộc tính vào nhưng lớp cha sẽ ko có thêm thuộc tính
+
+- implements Serializable: cho việc thực hiện ghi đối tượng vào trong file và ngc lại
++ chú ý: nếu class cha mà có rồi thì class con ko cần nữa
++ các thuộc tính "static", "transient" sẽ ko đc thực hiện serializable
+
+- throws: 
