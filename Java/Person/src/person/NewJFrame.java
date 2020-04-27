@@ -179,6 +179,7 @@ public class NewJFrame extends javax.swing.JFrame {
                     phongban_textfield.toString(), hesoluong, thamnien, luongcoban, luongthuclinh);
             
             nv.ghi_data();
+            nv.create_table();
         } catch (Exception ex) {
             Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

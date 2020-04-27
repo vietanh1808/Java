@@ -48,10 +48,10 @@ public class Person implements Serializable {
         return "Họ tên: " + hoten + "\t Ngày sinh: " + ngaysinh;
     }
 
-    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
-        NhanVien nv = new NhanVien("1", "1", "1", "1", "1", 1, 1, 1, 1);
-        NhanVien nv1 = new NhanVien();
-        nv.ghi_data();
-        nv1.doc_data();
-    }
+//    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
+//        NhanVien nv = new NhanVien("1", "1", "1", "1", "1", 1, 1, 1, 1);
+//        NhanVien nv1 = new NhanVien();
+////        nv.ghi_data();
+////        nv1.doc_data();
+//    }
 }

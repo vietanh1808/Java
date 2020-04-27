@@ -15,6 +15,10 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author No Name
@@ -34,6 +38,38 @@ public class NhanVien extends Person {
         this.thamnien = thamnien;
         this.luongthuclinh = luongthuclinh;
         this.luongcoban = luongcoban;
+    }
+
+    public String getHoten() {
+        return hoten;
+    }
+
+    public void setHoten(String hoten) {
+        this.hoten = hoten;
+    }
+
+    public String getDiachi() {
+        return diachi;
+    }
+
+    public void setDiachi(String diachi) {
+        this.diachi = diachi;
+    }
+
+    public String getGioitinh() {
+        return gioitinh;
+    }
+
+    public void setGioitinh(String gioitinh) {
+        this.gioitinh = gioitinh;
+    }
+
+    public String getNgaysinh() {
+        return ngaysinh;
+    }
+
+    public void setNgaysinh(String ngaysinh) {
+        this.ngaysinh = ngaysinh;
     }
     public String getPhongban() {
         return phongban;
@@ -103,8 +139,8 @@ public class NhanVien extends Person {
         
         try (FileInputStream fis = new FileInputStream(f); ObjectInputStream ois = new ObjectInputStream(fis)) {
             arr_nv = (ArrayList<NhanVien>) ois.readObject();
-            for (NhanVien nhanvien: arr_nv)
-                System.out.println("Họ tên: " + nhanvien.hoten);
+//            for (NhanVien nhanvien: arr_nv)
+//                System.out.println("Họ tên: " + nhanvien.hoten);
             fis.close();
             ois.close();
         }
@@ -116,5 +152,44 @@ public class NhanVien extends Person {
     
     public float luong() {
         return luongthuclinh = luongcoban * heso*(1 + thamnien / 100);
+    }
+    
+    public void create_table() throws IOException, FileNotFoundException, ClassNotFoundException {
+        String[] columnNames = {"Họ tên", "Địa chỉ", "Giới tính", "Ngày sinh", "Hệ số", "Phòng ban", "Thâm niên", "Lương thực lĩnh", "Lương cơ bản"};
+        ArrayList<NhanVien> arr_nv = new ArrayList<>();
+        NhanVien nv = new NhanVien();
+
+        arr_nv = nv.doc_data();
+        DefaultTableModel model;
+        JTable table = new JTable();
+        model = (DefaultTableModel) table.getModel();
+        JFrame jf = new JFrame();
+        jf.setSize(700, 500);
+      
+        model.setColumnIdentifiers(columnNames);
+        for (NhanVien nv1: arr_nv) {
+            model.addRow(new Object[] {
+                nv1.getHoten(), nv1.getDiachi(), nv1.getGioitinh(), nv1.getNgaysinh(), nv1.getHeso(), nv1.getPhongban(), nv1.getThamnien(), nv1.getLuongthuclinh(), nv1.getLuongcoban()
+            });
+        }
+        JScrollPane jsp = new JScrollPane(table);
+        table.setFillsViewportHeight(true);
+        jf.add(table);
+        jf.setVisible(true);
+    }
+    
+    public static void main(String[] args) throws IOException, FileNotFoundException, ClassNotFoundException {
+        
+//        NhanVien[] arr = null;
+
+//        arr_nv1 = nv.doc_data();
+////        for (int i=0; i<9; i++) {
+//            for (int j=0; j<arr_nv.size(); j++) {
+//                arr[i][] = arr_nv.get(j);
+//            }
+////        }
+//        JTable table = new JTable(columnNames, arr);
+        
+//        model.addRow
     }
 }
